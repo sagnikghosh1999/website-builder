@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import React, { useEffect, useState } from "react";
 import { NumberInput } from "@tremor/react";
 import { v4 } from "uuid";
-
 import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,7 +19,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../ui/alert-dialog";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Card,
   CardContent,
@@ -36,7 +37,6 @@ import {
 } from "../ui/form";
 import { useToast } from "../ui/use-toast";
 
-import * as z from "zod";
 import FileUpload from "../global/file-upload";
 import { Input } from "../ui/input";
 import { Switch } from "../ui/switch";
@@ -166,7 +166,7 @@ const AgencyDetails = ({ data }: Props) => {
       console.log(error);
       toast({
         variant: "destructive",
-        title: "Oppse!",
+        title: "Oops!",
         description: "could not create your agency",
       });
     }
